@@ -25,4 +25,7 @@ chrono = { version = "0.4", features = ["serde"] }
 dotenv = "0.15"
 csv = "1.4.0"
 
+# Technical Analysis - use stable version
+ta = "0.5.0"
+
 [dev-dependencies]

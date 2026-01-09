@@ -2,15 +2,22 @@
     "cSpell.words": [
         "chrono",
         "CLSK",
+        "CRWD",
         "DOCN",
         "dotenv",
+        "IBIT",
         "IBKR",
+        "MRVL",
         "MSTR",
+        "Optionen",
+        "PANW",
+        "PLTR",
         "RBLX",
         "reqwest",
         "serde",
         "TDOC",
         "thiserror",
-        "VEEV"
+        "VEEV",
+        "Watchlist"
     ]
 }
