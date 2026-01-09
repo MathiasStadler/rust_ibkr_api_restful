@@ -1,10 +1,16 @@
 {
     "cSpell.words": [
         "chrono",
+        "CLSK",
+        "DOCN",
         "dotenv",
         "IBKR",
+        "MSTR",
+        "RBLX",
         "reqwest",
         "serde",
-        "thiserror"
+        "TDOC",
+        "thiserror",
+        "VEEV"
     ]
 }
