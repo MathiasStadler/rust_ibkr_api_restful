@@ -1,4 +1,5 @@
-use chrono::NaiveDate;
+use chrono::{NaiveDate, Utc};
+use chrono_tz::US::Eastern;
 
 #[derive(Debug, Clone)]
 pub struct ProfitableStrike {
@@ -25,7 +26,12 @@ impl ProfitableStrike {
     ) -> Self {
         let profit_percentage = (premium / strike_price) * 100.0;
         
-        let today = chrono::Local::now().naive_local().date();
+        // Richtig: .date() gibt dir das Datum IN Eastern Time zurück
+        let today = Utc::now()
+            .with_timezone(&Eastern)
+            .date();  // ← .date() nicht .date_naive()!
+        let today = today.naive_utc();
+        
         let days_to_expiration = (expiration_date - today).num_days();
         
         // Prüfe ob Earnings während Option-Laufzeit

@@ -27,5 +27,6 @@ csv = "1.4.0"
 
 # Technical Analysis - use stable version
 ta = "0.5.0"
+chrono-tz = "0.10.4"
 
 [dev-dependencies]

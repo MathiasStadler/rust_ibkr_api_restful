@@ -1,4 +1,5 @@
-use chrono::{Local, NaiveDate};
+use chrono::{Utc, NaiveDate, FixedOffset};
+use chrono_tz::US::Eastern;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -21,7 +22,7 @@ pub struct Strike {
 
 impl Strike {
     pub fn days_to_expiration(&self) -> i64 {
-        let today = Local::now().naive_local().date();
+        let today = Utc::now().with_timezone(&Eastern).naive_local().date();
         (self.expiration_date - today).num_days()
     }
     
@@ -35,7 +36,7 @@ impl Strike {
     pub fn earnings_during_option_life(&self, earnings_date: Option<NaiveDate>) -> bool {
         match earnings_date {
             Some(earnings) => {
-                let today = Local::now().naive_local().date();
+                let today = Utc::now().naive_utc().date();
                 // Earnings liegt zwischen heute und Expiration
                 earnings > today && earnings <= self.expiration_date
             }
